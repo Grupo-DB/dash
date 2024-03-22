@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<link rel="stylesheet" href="{% static 'css\home.css' %}">
+
+{% endblock %}
+
+{% block 'body' %}
+
+{% include 'template.html' %}
+
+<div class="container">
+    <nav aria-label="breadcrumb bg-primary">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'prod_ini' %}">Produção</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Calcário</li>
+        </ol>
+    </nav>
+    
+    <div class="row">
+        <div class="col-9 align-self-center">
+            <a class="btn btn-primary " href="{% url 'home_eqps' %}" role="button"><i class="bi bi-truck-front"></i> Detalhe Equipamentos</a>
+            <h4><span class="badge rounded-pill text-bg-primary"><i class="bi bi-building-gear"></i> FCM I</span></h4>
+            <div class="card-group ">
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Atual</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm1_dia }} tn</h3>
+                    </div>             
+                </div>
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acumulado no Mês</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm1_mes }} tn</h3>
+                    </div>             
+                </div>
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acumulado no Ano</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm1_ano }} tn</h3>
+                    </div>             
+                </div>    
+            </div>
+        </div>
+        <div class="col-3 align-self-top">
+            <h4><span class="badge rounded-pill  text-bg-primary"><i class="bi bi-clock-history"></i> Produtividade</span></h4>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Dia</th>
+                    <th scope="col">Mês</th>
+                    <th scope="col">Ano</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>FCM I</th>
+                    <td>{{ tn_hora_dia_fcm1 }} tn/h</td>
+                    <td>{{ tn_hora_mes_fcm1 }} tn/h</td>
+                    <td>{{ tn_hora_ano_fcm1 }} tn/h</td>
+                  </tr>
+                  <tr>
+                    <th>FCM II</th>
+                    <td>{{ tn_hora_dia_fcm2 }} tn/h</td>
+                    <td>{{ tn_hora_mes_fcm2 }} tn/h</td>
+                    <td>{{ tn_hora_ano_fcm2 }} tn/h</td>
+                  </tr>
+                  <tr>
+                    <th>FCM III</th>
+                    <td>{{ tn_hora_dia_fcm3 }} tn/h</td>
+                    <td>{{ tn_hora_mes_fcm3 }} tn/h</td>
+                    <td>{{ tn_hora_ano_fcm3 }} tn/h</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>                    
+    </div>
+
+    <div class="row">
+        <h4><span class="badge rounded-pill text-bg-primary"><i class="bi bi-building-gear"></i> FCM II</span></h4>
+        <div class="col-9">
+            <div class="card-group ">
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Atual</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm2_dia }} tn</h3>
+                    </div>             
+                </div>
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acumulado no Mês</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm2_mes }} tn</h3>
+                    </div>             
+                </div>
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acumulado no Ano</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm2_ano }} tn</h3>
+                    </div>             
+                </div>    
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <h4><span class="badge rounded-pill text-bg-primary"><i class="bi bi-building-gear"></i> FCM III</span></h4>
+        <div class="col-9">
+            <div class="card-group ">
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Atual</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm3_dia }} tn</h3>
+                    </div>             
+                </div>
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acumulado no Mês</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm3_mes }} tn</h3>
+                    </div>             
+                </div>
+                <div class="card border-secondary mb-3" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acumulado no Ano</h6></div>
+                    <div class="card-body text-center">
+                    <h3 style=" color:#4F4F4F;">{{ ton_fcm3_ano }} tn</h3>
+                    </div>             
+                </div>    
+            </div>
+        </div>
+    </div>
+</div>                    
+
+
+
+{% endblock %}

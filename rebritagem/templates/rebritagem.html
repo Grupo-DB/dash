@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<!-- <link rel="stylesheet" href="{% static 'css\home.css' %}"> -->
+
+{% endblock %}
+
+{% block 'body' %}
+{% include 'template.html' %}
+
+<div class="container">
+    <nav aria-label="breadcrumb bg-primary">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'prod_ini' %}">Produção</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Rebritagem</li>
+        </ol>
+    </nav>
+    <div class="row"> <!--row dos cards-->
+        <div class="col-6">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-minecart-loaded"></i> Tn Rebritada</span></h4>
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Atual</h6></div>
+                <div class="card-body text-center">
+                  <h1 style=" color:#4F4F4F;"><span>{{ tot_tn_rebri_dia }} tn</span></h1>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Acumulado no Mês</h6></div>
+                <div class="card-body text-center">
+                  <h1 style=" color:#4F4F4F;"><span>{{ tot_tn_rebri_mes }} tn</span></h1>
+                </div>
+
+            </div>
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Acumulado no Ano</h6></div>
+                <div class="card-body text-center">
+                  <h1 style=" color:#4F4F4F;"><span>{{ tot_tn_rebri_ano }} tn</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clock-history"></i> Paradas na Rebritagem Último Dia</span></h4>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action active">
+                    <div class="d-flex w-100   justify-content-between">
+                        <h6 ><i class="bi bi-stopwatch"></i> Descrição da Parada no último dia <span></small> </span> </h6>
+                    </div>
+                </li>    
+                <li class="list-group-item d-flex justify-content-around align-items-center">
+                15-Manutenção Mecânica
+                <span>{{ y }}h</span>
+                <span>{{ x }}%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-around align-items-center">
+                09-Preparando Local
+                <span>{{ b }}h</span>
+                <span>{{ a }}%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-around align-items-center">
+                26-Embuchamento 
+                <span>{{ d }}h</span>
+                <span>{{ c }}%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-around align-items-center">
+                06-Almoço/janta
+                <span>{{ f }}h</span>
+                <span>{{ e }}%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-around align-items-center">
+                27-Setup (tela/peneira)
+                <span>{{ h }}h</span>
+                <span>{{ g }}%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-around align-items-center">
+                53-Alimentador desligado
+                <span>{{ j }}h</span>
+                <span>{{ i }}%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-around align-items-center">
+                14-Falta de matéria-prima
+                <span>{{ m }}h</span>
+                <span>{{ l }}%</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

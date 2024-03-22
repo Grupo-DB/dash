@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}{% endblock %}
+
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'css\home.css' %}">
+
+{% endblock %}
+
+
+{% block 'body' %}
+
+
+<!-- ############################ --------- NAB BAR CABEÇAÇHO ---------------- ############################################################################################## -->
+
+                <nav class="navbar bg-primary navbar-expand-sm" data-bs-theme="dark">
+                    <div class="container-fluid">
+                        <a class="navbar-brand">
+                            <img src="{% static "imagens/logo2.png"  %}" style="width: 50px;" class="d-inline-block align-text-top"   > 
+                            Dagoberto Barcellos Dashboard Indicadores Gerais
+                        </a>
+                        
+                        <ul class="navbar-nav  text-light">
+                            <li class="nav-item" >
+                            <a class="navbar-brand" href="{% url 'home'  %}">
+                                <i class="bi bi-calendar-check-fill"></i>
+                                Atual
+                            </a>
+                            </li>
+      
+                            <li class="nav-item" >
+                            <a class="navbar-brand" href="{% url 'mensal'  %}">
+                                <i class="bi bi-calendar-check-fill"></i>
+                                Acumulado Mês
+                            </a>
+                            </li>
+                            <li class="nav-item" >
+                            <a class="navbar-brand" href="{% url 'anual'  %}">
+                                <i class="bi bi-calendar-check-fill"></i>
+                                Acumulado Ano
+                            </a>
+                            </li>
+                            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="#offcanvasRight">
+                            <i class="bi bi-list"></i>
+                            MENU
+                            </button>
+                        </ul>
+                    </div>        
+                </nav>
+   
+
+        <div class="row">
+            <div class="offcanvas offcanvas-start w-25 " data-bs-backdrop="true" tabindex="-1" id="offcanvasRight" >
+                <div class="offcanvas-header bg-primary"  height: 200px;  ">
+                    <img src="{% static "imagens/logo2.png"  %}" style="width: 220px; " class="img-fluid rounded mx-auto d-block" >
+                </div>
+                <div class="offcanvas-body bg-primary " >
+                    <ul class="nav flex-column mb-auto" data-bs-theme="dark">
+                        <li class="nav-item">
+                            <a href="{% url 'home'  %}" class="nav-link " aria-current="page">
+                                <i class="bi bi-house-door"></i> Inicio  
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link " aria-current="page">
+                                <i class="bi bi-gear"></i> Manutenção 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link " aria-current="page">
+                                <i class="bi bi-minecart-loaded"></i> Mineração
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'prod_ini' %}" >
+                                <i class="bi bi-building-gear"></i> Produção
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#" >
+                                <i class="bi bi-person-check"></i> RH
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#" >
+                                <i class="bi bi-stickies"></i> Notas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#" >
+                                <i class="bi bi-currency-dollar"></i> Aplicação de Custos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#" >
+                                <i class="bi bi-clipboard2-data-fill"></i> Controladoria
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        </br>
+  
+
+{% endblock %}
+
+{% block rodape %}
+    
+{% endblock %} 

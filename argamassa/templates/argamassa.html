@@ -1,0 +1,383 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<!-- <link rel="stylesheet" href="{% static 'css\home.css' %}"> -->
+
+{% endblock %}
+
+{% block 'body' %}
+{% include 'template.html' %}
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-4">
+          <nav aria-label="breadcrumb bg-primary">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="{% url 'prod_ini' %}">Produção</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Argamassa</li>
+            </ol>
+          </nav>
+      </div>    
+      <div class="col-8">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-truck"></i> Carregamento Geral</span></h4>
+            <div class="card-group">
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                    <div class="card-body text-center">
+                    <h1 style=" color: #696969;">{{ tot_ton_car_geral_dia }} tn</h1>
+                    </div>             
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. mês atual</h6></div>
+                    <div class="card-body text-center">
+                    <h1 style=" color: #696969;">{{ tot_ton_car_geral_mes }} tn</h1>
+                    </div>
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. ano atual</h6></div>
+                    <div class="card-body text-center">
+                    <h1 style=" color: #696969;">{{ tot_ton_car_geral_ano }} tn</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    <!--endrow-->    
+
+<hr>
+</br>
+    <div class="row">
+        <div class="col-6">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> Produção</span></h4>
+        </div>
+        <div class="col-6 align-self-center">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> Volume ensacado</span></h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                <div class="card-body text-center">
+                <h4><span style=" color: #696969;">{{ tot_ton_arg_dia }} tn</span></h4>
+                </div>             
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. mês atual</h6></div>
+                <div class="card-body text-center">
+                <h4><span style=" color: #696969;">{{ tot_ton_prod_arg_mes }} tn</span></h4>
+                </div>             
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. ano atual</h6></div>
+                <div class="card-body text-center">
+                <h4><span style=" color: #696969;">{{ tot_ton_prod_arg_ano }} tn</span></h4>
+                </div>             
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                <div class="card-body text-center">
+                <h4><span style=" color: #696969;">{{ tot_sc }} un</span></h4>
+                </div>             
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. mês atual</h6></div>
+                <div class="card-body text-center">
+                <h4><span style=" color: #696969;">{{ tot_sc_mes }} un</span></h4>
+                </div>             
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. ano atual</h6></div>
+                <div class="card-body text-center">
+                <h4><span style=" color: #696969;">{{ tot_sc_ano }} un</span></h4>
+                </div>             
+            </div>
+        </div>
+    </div><!--endrow-->
+    <hr>
+    
+    <div class="row">
+        <div class="col-8">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> ARG1-MH-01</span></h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"style=" color: #363636;">Último Dia</th>
+                      <th scope="col"style=" color: #363636;">Acum.mês atual</th>
+                      <th scope="col"style=" color: #363636;">Acum. ano atual</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"style=" color: #363636;"><small>PRIMEX ARGAMASSA COLANTE AC-III SC-20KG</small></th>
+                      <td style=" color: #696969;">{{ ac3_str }} un</td>
+                      <td style=" color: #696969;">{{ mac3_str }} un</td>
+                      <td style=" color: #696969;">{{ yac3_str }} un</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA COLANTE AC-II SC-20KG</small></th>
+                      <td style=" color: #696969;">{{ ac2_str }} un</td>
+                      <td style=" color: #696969;">{{ mac2_str }} un</td>
+                      <td style=" color: #696969;">{{ yac2_str }} un</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA COLANTE AC-I SC-20KG</small></th>
+                      <td style=" color: #696969;">{{ ac1_str }} un</td>
+                      <td style=" color: #696969;">{{ mac1_str }} un</td>
+                      <td style=" color: #696969;">{{ yac1_str }} un</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><small style=" color: #363636;">DB MIX 500 SC-50KG</small></th>
+                        <td style=" color: #696969;">{{ dbm }} un</td>
+                        <td style=" color: #696969;">{{ mdbm }} un</td>
+                        <td style=" color: #696969;">{{ ydbm }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA PROJEÇÃO SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ap_str }} un</td>
+                        <td style=" color: #696969;">{{ apm_str }} un</td>
+                        <td style=" color: #696969;">{{ yap_str }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA ESTRUTURAL AE-04 SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ae }} un</td>
+                        <td style=" color: #696969;">{{ mae }} un</td>
+                        <td style=" color: #696969;">{{ yae }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA ESTRUTURAL AE-06 SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ae6 }} un</td>
+                        <td style=" color: #696969;">{{ mae6 }} un</td>
+                        <td style=" color: #696969;">{{ yae6 }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA ESTRUTURAL AE-08 SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ae8 }} un</td>
+                        <td style=" color: #696969;">{{ mae8 }} un</td>
+                        <td style=" color: #696969;">{{ yae8 }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA ESTRUTURAL AE-10 SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ae10 }} un</td>
+                        <td style=" color: #696969;">{{ mae10 }} un</td>
+                        <td style=" color: #696969;">{{ yae10 }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA ESTRUTURAL AE-12 SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ae12 }} un</td>
+                        <td style=" color: #696969;">{{ mae12 }} un</td>
+                        <td style=" color: #696969;">{{ yae12 }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA ESTRUTURAL AE-15 SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ae15 }} un</td>
+                        <td style=" color: #696969;">{{ mae15 }} un</td>
+                        <td style=" color: #696969;">{{ yae15 }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA GROSSA C/FIBRA SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ agf }} un</td>
+                        <td style=" color: #696969;">{{ magf }} un</td>
+                        <td style=" color: #696969;">{{ yagf }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA GROSSA SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ ag }} un</td>
+                        <td style=" color: #696969;">{{ mmag }} un</td>
+                        <td style=" color: #696969;">{{ yag }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA MASSA FINA SC-20KG</small></th>
+                        <td style=" color: #696969;">{{ mf }} un</td>
+                        <td style=" color: #696969;">{{ mmf }} un</td>
+                        <td style=" color: #696969;">{{ ymf }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small>PRIMEX ARGAMASSA MEDIA C/FIBRA SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ mdf }} un</td>
+                        <td style=" color: #696969;">{{ mmdf }} un</td>
+                        <td style=" color: #696969;">{{ ymdf }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA MEDIA SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ agmed }} un</td>
+                        <td style=" color: #696969;">{{ magmed }} un</td>
+                        <td style=" color: #696969;">{{ yagmed }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA MULTICHAPISCO SC-20KG</small></th>
+                        <td style=" color: #696969;">{{ mchap }} un</td>
+                        <td style=" color: #696969;">{{ mmchap }} un</td>
+                        <td style=" color: #696969;">{{ ychap }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA P/ PISO SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ piso }} un</td>
+                        <td style=" color: #696969;">{{ mpiso }} un</td>
+                        <td style=" color: #696969;">{{ ypiso }} un</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><small style=" color: #363636;">PRIMEX ARGAMASSA P/PISO C/E.V.A  SC-25KG</small></th>
+                        <td style=" color: #696969;">{{ peva }} un</td>
+                        <td style=" color: #696969;">{{ mpeva }} un</td>
+                        <td style=" color: #696969;">{{ ypeva }} un</td>
+                      </tr>
+                </table>
+            </table>
+        </div>
+        <div class="col-4">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> ARG1-MH-02</span></h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"style=" color: #363636;">Último Dia</th>
+                      <th scope="col"style=" color: #363636;">Acum.mês atual</th>
+                      <th scope="col"style=" color: #363636;">Acum. ano atual</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th></th>
+                      <td style=" color: #696969;">{{ ac3mh2_str }} un</td>
+                      <td style=" color: #696969;">{{ mac3mh2_str }} un</td>
+                      <td style=" color: #696969;">{{ yac3mh2_str }} un</td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td style=" color: #696969;">{{ ac2mh2_str }} un</td>
+                      <td style=" color: #696969;">{{ mac2mh2_str }} un</td>
+                      <td style=" color: #696969;">{{ yac3mh2_str }} un</td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td style=" color: #696969;">{{ ac1mh2_str }} un</td>
+                      <td style=" color: #696969;">{{ mac1mh2_str }} un</td>
+                      <td style=" color: #696969;">{{ yac1mh2_str }} un</td>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <td style=" color: #696969;">{{ dbmmh2 }} un</td>
+                        <td style=" color: #696969;">{{ mdbmmh2 }} un</td>
+                        <td style=" color: #696969;">{{ ydbmmh2 }} un</td>  
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ apmh2_str }} un</td>
+                        <td style=" color: #696969;">{{ apmmh2_str }} un</td>
+                        <td style=" color: #696969;">{{ yapmh2_str }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ aemh2 }} un</td>
+                        <td style=" color: #696969;">{{ maemh2 }} un</td>
+                        <td style=" color: #696969;">{{ yaemh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ ae6mh2 }} un</td>
+                        <td style=" color: #696969;">{{ mae6mh2 }} un</td>
+                        <td style=" color: #696969;">{{ yae6mh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ ae8mh2 }} un</td>
+                        <td style=" color: #696969;">{{ mae8mh2 }} un</td>
+                        <td style=" color: #696969;">{{ yae8mh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ ae10mh2 }} un</td>
+                        <td style=" color: #696969;">{{ mae10mh2 }} un</td>
+                        <td style=" color: #696969;">{{ yae10mh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ ae12mh2 }} un</td>
+                        <td style=" color: #696969;">{{ mae12mh2 }} un</td>
+                        <td style=" color: #696969;">{{ yae12mh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ ae15mh2 }} un</td>
+                        <td style=" color: #696969;">{{ mae15mh2 }} un</td>
+                        <td style=" color: #696969;">{{ yae15mh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ agfmh2 }} un</td>
+                        <td style=" color: #696969;">{{ magfmh2 }} un</td>
+                        <td style=" color: #696969;">{{ yagfmh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ agmh2 }} un</td>
+                        <td style=" color: #696969;">{{ mmagmh2 }} un</td>
+                        <td style=" color: #696969;">{{ yagmh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ mfmh2 }} un</td>
+                        <td style=" color: #696969;">{{ mmfmh2 }} un</td>
+                        <td style=" color: #696969;">{{ ymfmh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ mdfmh2 }} un</td>
+                        <td style=" color: #696969;">{{ mmdfmh2 }} un</td>
+                        <td style=" color: #696969;">{{ ymdfmh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ agmedmh2 }} un</td>
+                        <td style=" color: #696969;">{{ magmedmh2 }} un</td>
+                        <td style=" color: #696969;">{{ yagmedmh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ mchapmh2 }} un</td>
+                        <td style=" color: #696969;">{{ mmchapmh2 }} un</td>
+                        <td style=" color: #696969;">{{ ychapmh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ pisomh2 }} un</td>
+                        <td style=" color: #696969;">{{ mpisomh2 }} un</td>
+                        <td style=" color: #696969;">{{ ypisomh2 }} un</td>
+                      </tr>
+                      <tr>
+                        <th></th>
+                        <td style=" color: #696969;">{{ pevamh2 }} un</td>
+                        <td style=" color: #696969;">{{ mpevamh2 }} un</td>
+                        <td style=" color: #696969;">{{ ypevamh2 }} un</td>
+                      </tr>
+                  </tbody>
+                </table>
+            </table>
+        </div>
+
+    </div>
+
+    
+</div>     
+<div class="row"><br><br><br><br><br></div>
+
+
+{% endblock %}

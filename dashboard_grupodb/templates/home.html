@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<link rel="stylesheet" href="{% static 'css\home.css' %}">
+
+{% endblock %}
+
+{% block 'body' %}
+
+{% include 'template.html' %}
+
+
+
+</br>
+
+<div class="container">
+  <div class="row justify-content-center">    
+    <div class="col-2">
+      <div class="card border-secondary" >
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-minecart-loaded"></i> Total Calcário</h6></div>
+        <div class="card-body text-center" style="color: #696969;">  
+            <h5>{{ total_calcario }} tn</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="card border-secondary" style="color: #696969;" >
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-collection"></i> Total Fertilizante</h6></div>
+          <div class="card-body text-center">
+            <h5>{{ total_fertilizante }} tn</h5>
+          </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="card border-secondary" style="color: #696969;">
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-tags"></i> Total Cal</h6></div>
+          <div class="card-body text-center">
+            <h5>{{ total_cal }} tn</h5>
+          </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="card border-secondary" style="color: #696969;">
+        <div class="card-header bg-primary text-light"><h6> <i class="bi bi-server"></i> Total Argamassa</h6></div>
+          <div class="card-body text-center">
+            <h5>{{ total_argamassa }} tn</h5>
+          </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="card border-secondary" style="color: #696969;">
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-minecart-loaded"></i> Total Britagem</h6></div>
+          <div class="card-body text-center">
+            <h5>{{ ton_britagem }} tn</h5>
+          </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="card border-secondary" style="color: #696969;">
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-minecart-loaded"></i> Volume Britador</h6></div>
+          <div class="card-body text-center">
+            <h5>{{ vol_brit }} tn</h5>
+          </div>
+      </div>
+    </div>
+
+  </div><!--endrow-->
+  
+<hr>    
+</br>
+  <div class="row" id="row-manutencao">  
+    <div class="card-group">
+      <div class="card">
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-bar-chart"></i> Cal Produtos</h6></div>
+          <div class="card-body">
+            {{ plot_cal|safe }}
+          </div>  
+      </div>
+      <div class="card ">
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-bar-chart"></i> Movimentação Calcário</h6></div>
+          <div class="card-body">
+            {{ plot_brit|safe }}
+        </div>  
+      </div>
+      <div class="card ">
+        <div class="card-header bg-primary text-light"><h6><i class="bi bi-bar-chart"></i> Argamassa Produtos</h6></div>
+          <div class="card-body">
+            {{ plot_arg|safe }}
+          </div>  
+      </div>
+    </div>
+  </div>        
+</div> 
+
+
+{% endblock %}

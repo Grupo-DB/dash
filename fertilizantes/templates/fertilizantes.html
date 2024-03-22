@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<!-- <link rel="stylesheet" href="{% static 'css\home.css' %}"> -->
+
+{% endblock %}
+
+{% block 'body' %}
+{% include 'template.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card justify-self-end">
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Indicadores por Data:</h6></div>
+                <div class="card-body text-center text-sm">    
+                    
+                        <form method="post"  action="{% url 'get_data' %}">
+                            
+                            {% csrf_token %}
+                            {{ form.as_p }} 
+                            <button type="submit" class="btn btn-primary ">Selecione</button>
+                        </form>
+                </div>    
+            </div>    
+        </div>
+        
+        <div class="col-6">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"> Carregamento Geral</span></h4>
+            <div class="card-group">
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>             
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último mês</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último ano</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--endrow-->
+<hr>
+    <div class="row">
+        <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> Total Fábrica</span></h4>
+        <div class="col-3">
+            <div class="card border-secondary" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                <div class="card-body text-center">
+                <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                </div>             
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-secondary" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último mês</h6></div>
+                <div class="card-body text-center">
+                <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                </div>             
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-secondary" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último ano</h6></div>
+                <div class="card-body text-center">
+                <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                </div>             
+            </div>
+        </div>
+        <div class="col-3">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action active">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 >Produtividade <span> <small><i class="bi bi-stopwatch"></i> Hs/Produção -- Tn/h</small> </span> </h6>
+                    </div>
+                </li>    
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Último dia
+                  <span class="badge text-bg-danger rounded-pill">{{ total_hs_dia }}</span>
+                  <span class="badge text-bg-primary rounded-pill">{{ ton_hs_dia }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Mês Atual
+                  <span class="badge text-bg-danger rounded-pill">{{ total_hs_mes  }}</span>
+                  <span class="badge text-bg-primary rounded-pill">{{ ton_hora_mes }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Ano atual
+                  <span class="badge text-bg-danger rounded-pill">{{ total_hs_ano }}</span>
+                  <span class="badge text-bg-primary rounded-pill">{{ ton_hora_ano }}</span>
+                </li>
+              </ul>
+        </div>    
+    </div><!--endrow-->
+ <hr>   
+    <div class="row">
+        <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> S-10 Big Bag</span></h4>
+            <div class="card-group">
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>             
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último mês</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último ano</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><i class="bi bi-boxes"> </i>Estoque</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div><!--endrow-->
+        <hr>   
+        <div class="row">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> S-10 50 Kg</span></h4>
+                <div class="card-group">
+                    <div class="card border-secondary" >
+                        <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                        <div class="card-body text-center">
+                        <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                        </div>             
+                    </div>
+                    <div class="card border-secondary" >
+                        <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último mês</h6></div>
+                        <div class="card-body text-center">
+                        <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                        </div>
+                    </div>
+                    <div class="card border-secondary" >
+                        <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último ano</h6></div>
+                        <div class="card-body text-center">
+                        <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                        </div>
+                    </div>
+                    <div class="card border-secondary" >
+                        <div class="card-header bg-primary text-light"><i class="bi bi-boxes"> </i>Estoque</h6></div>
+                        <div class="card-body text-center">
+                        <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                        </div>
+                    </div>
+                </div>
+            </div><!--endrow-->
+            <hr>
+            <hr>   
+    <div class="row">
+        <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> DB CA S</span></h4>
+            <div class="card-group">
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>             
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último mês</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. último ano</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><i class="bi bi-boxes"> </i> Estoque</h6></div>
+                    <div class="card-body text-center">
+                      <h1><span class="badge rounded-pill text-bg-warning">{{ tot_carregamento }}</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div><!--endrow-->
+</div><!--endcontainer-->
+
+
+
+{% endblock %}

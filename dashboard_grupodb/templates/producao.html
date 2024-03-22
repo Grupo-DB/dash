@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<link rel="stylesheet" href="{% static 'css\home.css' %}">
+
+{% endblock %}
+
+{% block 'body' %}
+
+{% include 'template.html' %}
+</br>
+<div class="container">
+        <nav aria-label="breadcrumb bg-primary">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Produção</li>
+            </ol>
+        </nav>
+    <div class="row">
+        <div class="col-sm-4">
+                <div class="card card-flush h-md-50 mb-xl-10 " >
+                        <div class="card-header bg-primary text-light ">
+                            <img src="{% static "imagens/logo2.png"  %}" style="width: 50px;color: #696969;"    > 
+                            Produção de Calcário
+                        </div>    
+                        <div class="card-body">
+                            <div class="spinner-grow text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                                <h5><span class="d-inline-block align-text-top " style="padding-left: 35px;color: #696969;">{{ ton_calcario }} tn</span></h5>
+                            <div>
+                                <span>Acumulado Último Dia</span> 
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="{% url 'home_calcario' %}" role="button">Detalhe</a>
+                        </div>
+                </div>    
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-flush h-md-50 mb-xl-10 " >
+                    <div class="card-header bg-primary text-light ">
+                        <img src="{% static "imagens/logo2.png"  %}" style="width: 50px;color: #696969;"    > 
+                        Produção de Britagem
+                    </div>    
+                    <div class="card-body">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                            <h5><span class="d-inline-block align-text-top " style="padding-left: 35px;color: #696969;">{{ ton_britagem }} tn</span></h5>
+                        <div>
+                            <span>Acumulado Último Dia</span> 
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" href="{% url 'home_britagem' %}" role="button">Detalhe</a>
+                    </div>
+            </div>    
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-flush h-md-50 mb-xl-10 " >
+                    <div class="card-header bg-primary text-light ">
+                        <img src="{% static "imagens/logo2.png"  %}" style="width: 50px;color: #696969;"    > 
+                        Produção de Rebritagem
+                    </div>    
+                    <div class="card-body">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                            <h5><span class="d-inline-block align-text-top " style="padding-left: 35px;color: #696969;">{{ ton_rebritagem }} tn</span></h5>
+                        <div>
+                            <span>Acumulado Último Dia</span> 
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" href="{% url 'home_rebritagem' %}" role="button">Detalhe</a>
+                    </div>
+            </div>    
+        </div>
+    </div> <!--endrow-->       
+</br>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card card-flush h-md-50 mb-xl-10 " >
+                    <div class="card-header bg-primary text-light ">
+                        <img src="{% static "imagens/logo2.png"  %}" style="width: 50px;color: #696969;"    > 
+                        Produção de Fertilizante
+                    </div>    
+                    <div class="card-body">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                            <h5><span class="d-inline-block align-text-top " style="padding-left: 35px;color: #696969;">{{ ton_fertilizante }} tn</span></h5>
+                        <div>
+                            <span>Acumulado Último Dia</span> 
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" href="{% url 'home_fertilizantes' %}" role="button">Detalhe</a>
+                    </div>
+            </div>    
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-flush h-md-50 mb-xl-10 " >
+                    <div class="card-header bg-primary text-light ">
+                        <img src="{% static "imagens/logo2.png"  %}" style="width: 50px; color: #696969;"    > 
+                        Produção de Cal
+                    </div>    
+                    <div class="card-body">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                            <h5><span class="d-inline-block align-text-top " style="padding-left: 35px;color: #696969;">{{ ton_cal }} tn</span></h5>
+                        <div>
+                            <span style="color: #696969;">Acumulado Último Dia</span> 
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" href="{% url 'home_cal' %}" role="button">Detalhe</a>
+                    </div>
+            </div>    
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-flush h-md-50 mb-xl-10 " >
+                    <div class="card-header bg-primary text-light ">
+                        <img src="{% static "imagens/logo2.png"  %}" style="width: 50px;color: #696969;"    > 
+                        Produção de Argamassa
+                    </div>    
+                    <div class="card-body">
+                        <div class="spinner-grow text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                            <h5><span class="d-inline-block align-text-top " style="padding-left: 35px; color: #696969;">{{ ton_argamassa }} tn</span></h5>
+                        <div>
+                            <span style="color: #696969;">Acumulado Último Dia</span> 
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary" href="{% url 'home_argamassa' %}" role="button">Detalhe</a>
+                    </div>
+            </div>    
+        </div>
+    </div><!--endrow-->
+    <div><br><br><br><br><br></div>
+</div>
+
+
+
+
+
+
+{% endblock %}

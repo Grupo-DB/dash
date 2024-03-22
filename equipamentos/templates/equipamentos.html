@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<!-- <link rel="stylesheet" href="{% static 'css\home.css' %}"> -->
+
+{% endblock %}
+
+{% block 'body' %}
+
+{% include 'template.html' %}
+
+<div class="container">
+    <div class="row" >
+        <div class="col-4">
+            <nav aria-label="breadcrumb bg-primary">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'prod_ini' %}">Produção</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'home_calcario' %}">Calcário</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Equipamentos</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-2">
+            <div class="card justify-self-end">
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Indicadores por Data:</h6></div>
+                <div class="card-body text-center text-sm">    
+                    
+                        <form method="post"  action="{% url 'get_data' %}">
+                            
+                            {% csrf_token %}
+                            {{ form.as_p }} 
+                            <button type="submit" class="btn btn-primary ">Selecione</button>
+                        </form>
+                </div>    
+            </div>    
+        </div>
+        <div class="col-6">
+            <div class="card-group">
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-truck"></i> Carregamento Total</h6></div>
+                    <div class="card-body text-center">
+                    <h4 style=" color:#4F4F4F;">{{ tot_carregamento }} tn</h4>
+                    </div>
+                </div>
+
+                <div class="card border-secondary">
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Produtividade Total</h6></div>
+                    <div class="card-body text-center">
+                    <h4 style=" color:#4F4F4F;">{{ produtividade_geral }} tn/h</h4>
+                    </div>
+                </div>
+
+                <div class="card border-secondary">
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Produção Total</h6></div>
+                    <div class="card-body text-center">
+                    <h4 style=" color:#4F4F4F;">{{ tot_ton_geral }} tn</h4>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+<hr>    
+</br>
+    <div class="row " id="row fcm1" >
+        <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-building-gear"></i> FCM I</span></h4></br>
+        <div class="col-3 align-self-center" id="col-mg01">
+            <div class="card border-secondary mb-1" >
+                <div class="card-header bg-primary text-light"><h5><i class="bi bi-clipboard-data"></i> MG-01</h5></div>
+                <div class="card-title text-center">
+                    Hora Produção</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_prod_mg_01_fcm1 }} hh</h1>
+                    Hora Parado</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_parado_mg01_fcm1 }} h</h1>
+                    Tonelada Produzida</br>
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_mg_01_fcm1 }} tn</h1>
+                </div>
+            </div>
+        </div>    
+        <div class="col-3 align-self-center" id="col-mg02">    
+            <div class="card border-secondary mb-1" >
+                <div class="card-header bg-primary text-light"><h5><i class="bi bi-clipboard-data"></i> MG-02</h5></div>
+                <div class="card-title text-center">
+                  Hora Produção</br>  
+                  <h1 style=" color:#4F4F4F;">{{ hora_prod_mg_02_fcm1 }} h</h1>
+                  Hora Parado</br>
+                  <h1 style=" color:#4F4F4F;">{{ hora_parado_mg02_fcm1 }} h</h1> 
+                  Tonelada Produzida</br>
+                  <h1 style=" color:#4F4F4F;">{{ tot_ton_mg_02_fcm1 }} tn</h1> 
+                </div>
+            </div>
+        </div>
+        <div class="col-3 align-self-center"  id="col-produtividade">
+            <div class="card border-secondary mb-1 h-50 align-self-end" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clock-history"></i> Produtividade Fábrica</h6></div>
+                <div class="card-body text-center">
+                  <h1 style=" color:#4F4F4F;">{{ tot_produtividade }} tn/h</h1>
+                </div>
+            </div>
+        </div>    
+        <div class="col-3 align-self-center"  id="col-tot">
+            <div class="card border-secondary mb-1 h-50 align-self-end" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-building-gear"></i> Produção Fábrica</h6></div>
+                <div class="card-body text-center">
+                  <h1 style=" color:#4F4F4F;">{{ tot_ton_fcm1 }} tn</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+           
+<hr>    
+</br>
+
+    <div class="row justify-content-center" id="row-fm2">
+        <h4><span class="badge rounded-pill text-bg-primary"><i class="bi bi-building-gear"></i> FCM II</span></h4></br>
+        <div class="col-3 align-self-center" id="col-mg01">
+            <div class="card border-secondary mb-1" >
+                <div class="card-header bg-primary text-light"><h5><i class="bi bi-clipboard-data"></i> MG-01</h5></div>
+                <div class="card-title text-center">
+                    Hora Produção</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_prod_mg_01_fcm2 }} h</h1>
+                    Hora Parado</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_parado_mg_01_fcm2 }} h</h1>
+                    Tonelada Produzida</br>
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_mg_01_fcm2 }} tn</h1>
+                </div>
+            </div>
+        </div>  
+        <div class="col-3 align-self-center" id="col-produtividade">
+            <div class="card border-secondary mb-4 align-self-end" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Produtividade Fábrica</h6></div>
+                <div class="card-body text-center">
+                  <h1 style=" color:#4F4F4F;">{{ tot_produtividade_fcm2 }} tn/h</h1>
+                </div>
+            </div>
+        
+            <div class="card border-secondary mb-1 align-self-end" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Produção Fábrica</h6></div>
+                <div class="card-body text-center">
+                  <h1 style=" color:#4F4F4F;">{{ tot_ton_mg_01_fcm2 }} tn</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+<hr>    
+</br>    
+    <div class="row" id="col-fcm3">
+        <h4><span class="badge rounded-pill text-bg-primary"><i class="bi bi-building-gear"></i> FCM III</span></h4></br>
+        <div class="col-2 align-self-center" id="col-mg01">
+            <div class="card border-secondary mb-1" >
+                <div class="card-header bg-primary text-light"><h5><i class="bi bi-clipboard-data"></i> MG-01</h5></div>
+                <div class="card-title text-center">
+                    Hora Produção</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_prod_mg_01_fcm3 }} h</h1>
+                    Hora Parado</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_parado_mg_01_fcm3 }} h</h1>
+                    Tonelada Produzida</br>
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_mg_01_fcm3 }} tn</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-2   align-self-end" id="col-hr-parado">
+            <div class="card border-secondary mb-1" >
+                <div class="card-header bg-primary text-light"><h5><i class="bi bi-clipboard-data"></i> MG-02</h5></div>
+                <div class="card-title text-center">
+                    Hora Produção</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_prod_mg_02_fcm3 }} h</h1>
+                    Hora Parado</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_parado_mg_02_fcm3 }} h</h1>
+                    Tonelada Produzida</br>
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_mg_02_fcm3 }} tn</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 " id="col-ton-prod">
+            <div class="card border-secondary mb-1" >
+                <div class="card-header bg-primary text-light"><h5><i class="bi bi-clipboard-data"></i> MG-03</h5></div>
+                <div class="card-title text-center">
+                    Hora Produção</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_prod_mg_03_fcm3 }} h</h1>
+                    Hora Parado</br>
+                    <h1 style=" color:#4F4F4F;">{{ hora_parado_mg_03_fcm3 }} h</h1>
+                    Tonelada Produzida</br>
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_mg_03_fcm3 }} tn</h1>
+                </div>
+            </div>
+        </div>
+   
+        <div class="col-3 align-self-center"  id="col-produtividade">
+            <div class="card border-secondary h-50 align-self-end" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Produtividade Fábrica</h6></div>
+                <div class="card-body text-center">
+                <h1 style=" color:#4F4F4F;">{{ tot_produtividade_fcm3 }} tn/h</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 align-self-center"  id="col-producao">
+            <div class="card border-secondary h-50 " >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-clipboard-data"></i> Produção Fábrica</h6></div>
+                <div class="card-body text-center">
+                <h1 style=" color:#4F4F4F;">{{ tot_ton_fcm3 }} tn</h1>
+                </div>
+            </div>
+        </div>    
+    </div>
+<br><br><br><br>
+
+</div>
+
+
+{% endblock %}

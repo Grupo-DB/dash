@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'titulo' %}Dashboard{% endblock %}
+
+{% block 'head' %}
+
+<!-- <link rel="stylesheet" href="{% static 'css\home.css' %}"> -->
+
+{% endblock %}
+
+{% block 'body' %}
+{% include 'template.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <nav aria-label="breadcrumb bg-primary">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'prod_ini' %}">Produção</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cal</li>
+                </ol>
+            </nav>
+        </div>
+        
+        <div class="col-8">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-truck"></i> Carregamento Geral</span></h4>
+            <div class="card-group">
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                    <div class="card-body text-center">
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_car_geral_dia }} tn</h1>
+                    </div>             
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. mês atual</h6></div>
+                    <div class="card-body text-center">
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_car_geral_mes }} tn</h1>
+                    </div>
+                </div>
+                <div class="card border-secondary" >
+                    <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. ano atual</h6></div>
+                    <div class="card-body text-center">
+                    <h1 style=" color:#4F4F4F;">{{ tot_ton_car_geral_ano }} tn</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--endrow-->
+    <hr>
+    <div class="row">
+        <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> Calcinação</span></h4>
+        <div class="col-1">
+             </br></br>
+            <h5 style=" color:#4F4F4F;">AZBE</h5></br></br></br></br>
+            <h5 style=" color:#4F4F4F;">Metálicos</h5>
+        </div>
+        <div class="col-3 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                <div class="card-body text-center">
+                <h3 style=" color:#4F4F4F;">{{ to_ton_azbe }} tn</h3>
+                </div>             
+            </div>
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Último dia</h6></div>
+                <div class="card-body text-center">
+                <h3 style=" color:#4F4F4F;">{{to_ton_met }} tn</h3>
+                </div>             
+            </div>
+        </div>
+        <div class="col-3 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. mês atual</h6></div>
+                <div class="card-body text-center">
+                <h3 style=" color:#4F4F4F;">{{ to_ton_azbe_mes }} tn</h3>
+                </div>             
+            </div>
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. mês atual</h6></div>
+                <div class="card-body text-center">
+                <h3 style=" color:#4F4F4F;">{{ to_ton_met_mes }} tn</h3>
+                </div>             
+            </div>
+        </div>
+        <div class="col-3 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. ano atual</h6></div>
+                <div class="card-body text-center">
+                <h3 style=" color:#4F4F4F;">{{ to_ton_ano_azbe }} tn</h3>
+                </div>             
+            </div>
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Acum. ano atual</h6></div>
+                <div class="card-body text-center">
+                <h3 style=" color:#4F4F4F;">{{ to_ton_ano_met }} tn</h3>
+                </div>             
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+            <div class="card border-secondary mb-3" >
+                <div class="card-header bg-primary text-light"><h6><i class="bi bi-stopwatch"></i> Total dos fornos</h6></div>
+                <div class="card-body text-center">
+                <h4 style=" color:#4F4F4F;">{{ to_ton_fornos_dia }} tn</h4>    
+                <h6 style=" color:#4F4F4F;">Atual</h6>
+                <h4 style=" color:#4F4F4F;">{{ to_ton_fornos_mes}} tn</h4>
+                <h6 style=" color:#4F4F4F;">Acum. Mês</h6>
+                <h4 style=" color:#4F4F4F;">{{ to_ton_fornos_ano }} tn</h4>
+                <h6 style=" color:#4F4F4F;">Acum. Ano</h6>
+                </div>             
+            </div>
+        </div> 
+    </div><!--endrow-->
+    <hr>
+    <div class="row">
+        <div class="col-8">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> Beneficiamento</span></h4>
+        </div>
+        <div class="col-4 align-self-center">
+            <h4><span class="badge rounded-pill align-self-center text-bg-primary"><i class="bi bi-clipboard-data"></i> Volume ensacado</span></h4>
+        </div>
+    </div>    
+    <div class="row">    
+        <div class="col-8">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Último Dia</th>
+                    <th scope="col">Acum.mês atual</th>
+                    <th scope="col">Acum. ano atual</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Cal Virgem CV-C</th>
+                    <td>{{ to_ton_dia_benef }} tn</td>
+                    <td>{{ to_ton_mes_benef }} tn</td>
+                    <td>{{ to_ton_ano_benef }} tn</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cal Hidratada CH-II</th>
+                    <td>{{ to_ton_ch_dia }} tn</td>
+                    <td>{{ to_ton_ch_mes }} tn</td>
+                    <td>{{ to_ton_ano_ch }} tn</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cal Hidráulica</th>
+                    <td>{{ to_ton_hid_dia }} tn</td>
+                    <td>{{ to_ton_hid_mes }} tn</td>
+                    <td>{{ to_ton_ano_hid }} tn</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        
+        
+        <div class="col-4 align-self-start">
+            
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Último Dia</th>
+                    <th scope="col">Acum.mês atual</th>
+                    <th scope="col">Acum. ano atual</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>{{ to_ton_dia_benef_ens }} tn</td>
+                    <td>{{ to_ton_mes_benef_ens }} tn</td>
+                    <td>{{ to_ton_ano_benef_ens }} tn</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>{{ to_ton_dia_ch_ens }} tn</td>
+                    <td>{{ to_ton_mes_ch_ens }} tn</td>
+                    <td>{{ to_ton_ano_ch_ens }} tn</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td>{{ to_ton_dia_hid_ens }} tn</td>
+                    <td>{{ to_ton_mes_hid_ens }} tn</td>
+                    <td>{{ to_ton_ano_hid_ens }} tn</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div><!--endrow-->
+</br>
+</br>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
